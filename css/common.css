@@ -1,0 +1,438 @@
+@charset "utf-8";
+/* My Item 공통 CSS - common.css */
+
+/**********전체부모박스**********/
+.wrap {
+    width: 1000px;
+    margin: 0 auto;
+    /*가로중앙정렬-마영오!*/
+    background-color: #fff;
+    box-shadow: 0 0 5px #ccc;
+}
+
+/*직계박스 임시표시*/
+/*.wrap > * {
+    outline: 1px dashed blue;
+}*/
+
+/*********** 1.상단영역 **********/
+#top {
+    position: relative;
+    /*부모자격*/
+    height: 130px;
+    z-index: 9999;
+    /*맨위!
+        z-index 란?
+        포지션이 static하지 않은 경우(relative,absolute,fixed)
+        요소가 곁칠 수 있는 포지션에서 순서를 정하는 속성값
+        숫자가 높을 수록 위에 오며 +,- 모두 가능
+        순서에 상관없이 static요소는 아랫쪽에 깔림!
+    */
+}
+
+/*1-1.로고*/
+#logo {
+    position: relative;
+    bottom: 10px;
+    left: 10px;
+    /*부모자격*/
+    width: 150px;
+    height: 90px;
+    /*outline: 2px dotted red;*/
+}
+
+/*카멜레온 로고 구성하기*/
+/*로고타이틀*/
+#mtit {
+    position: absolute;
+    bottom: 0;
+}
+
+/*빨간공*/
+#rb {
+    position: absolute;
+    top: 41px;
+    left: 55px;
+}
+/*#logo에 class "on"을 줄때 애니메이션호출*/
+#logo.on #rb{
+    /*애니메이션호출*/
+    animation: rb 1s ease-in-out 2s;
+}
+
+/*카멜레온박스*/
+#cb {
+    position: absolute;
+    top: 31px;
+    left: 73px;
+    /*outline: 2px dotted blue;*/
+}
+/*#logo에 class "on"을 줄때 애니메이션호출*/
+#logo.on #cb{
+    /*애니메이션호출*/
+    animation: cb 1.5s ease-in-out 3.5s,
+        rot .6s ease-in-out 5s;
+}
+
+/*카멜레온혀*/
+#tung {
+    position: absolute;
+    top: 6px;
+    left: -21px;
+    width: 48px;
+    height: 8px;
+    background: url(../images/mlogo_01.png) no-repeat;
+}
+/*#logo에 class "on"을 줄때 애니메이션호출*/
+#logo.on #tung{
+    /*애니메이션호출*/
+    animation: tung .5s linear 3s;
+}
+
+/*카멜레온*/
+#cam {
+    position: relative;
+    /*순서상 위에 오도록 포지션줌!*/
+}
+
+/*****카멜레온 키프레임******/
+/*1.빨간공*/
+@keyframes rb {
+    0% {
+        top: 41px;
+    }
+
+    49% {
+        top: 20px;
+    }
+
+    51% {
+        top: 20px;
+    }
+
+    100% {
+        top: 41px;
+    }
+}
+
+/*키프레임*/
+
+/*2.혀*/
+@keyframes tung {
+    0% {
+        left: -21px;
+        background-image: url(../images/mlogo_01.png);
+    }
+
+    10% {
+        background-image: url(../images/mlogo_02.png);
+    }
+
+    20% {
+        background-image: url(../images/mlogo_03.png);
+    }
+
+    30% {
+        background-image: url(../images/mlogo_04.png);
+    }
+
+    40% {
+        left: -40px;
+        background-image: url(../images/mlogo_04.png);
+    }
+
+    60% {
+        background-image: url(../images/mlogo_03.png);
+    }
+
+    70% {
+        background-image: url(../images/mlogo_02.png);
+    }
+
+    80% {
+        background-image: url(../images/mlogo_01.png);
+    }
+
+    100% {
+        left: -21px;
+        background-image: url(../images/mlogo_01.png);
+    }
+}
+
+/*키프레임*/
+
+/*3.카멜레온박스이동*/
+@keyframes cb {
+    0% {
+        left: 73px;
+    }
+
+    50% {
+        left: 10px;
+    }
+    
+    100% {
+        left: 73px;
+    }
+}
+
+/*키프레임*/
+
+/*4.카멜레온 회전*/
+@keyframes rot {
+    to{
+        transform: rotate(-360deg);
+    }
+}
+/*키프레임*/
+
+
+
+
+
+
+
+/*1-2.GNB(Global Navigation Bar)*/
+/*body요소의 가상요소를 이용하여 네비게이션 100%바 만들기*/
+body::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    height: 40px;
+    background-image: linear-gradient(to bottom, #cecece 0%, #bababa 20%, #8a8a8a 80%, #5c5c5c 100%);
+}
+
+.gnb {
+    position: absolute;
+    /*추가*/
+    /*나의부모?*/
+    bottom: 0;
+    /*추가*/
+    width: 100%;
+    /*추가*/
+
+    background-image: linear-gradient(to bottom, #cecece 0%, #bababa 20%, #8a8a8a 80%, #5c5c5c 100%);
+    /*추가*/
+}
+
+.gnb > ul {
+    width: 600px;
+    /*변경*/
+    height: 40px;
+    /*변경*/
+    margin: 0 auto;
+    /*마영오*/
+    /*            outline: 2px solid lime;*/
+}
+
+.gnb > ul > li {
+    width: 150px;
+    /*변경*/
+    height: 40px;
+    /*변경*/
+    text-align: center;
+    /*            outline: 2px dotted #fff;*/
+}
+
+.gnb > ul > li a {
+    display: block;
+    /*디자인적용위해*/
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    /*글자색은 반드시 a요소에서!*/
+    text-decoration: none;
+    font: bold 14px/40px "맑은 고딕", Verdana;
+    /*변경*/
+    transition: all .4s;
+    /*트랜지션(양방향동일)*/
+}
+
+/*상위메뉴 마우스 오버시 
+        글자색,배경색 변경하기*/
+.gnb > ul > li:hover > a {
+    color: #777;
+    /*변경*/
+    text-shadow: 0 1px 0 #fff;
+    /*추가*/
+    background-image: linear-gradient(to top, #cecece 0%, #bababa 20%, #8a8a8a 80%, #5c5c5c 100%);
+    /*추가*/
+}
+
+/*서브메뉴*/
+.smenu {
+    background-color: #cecece;
+    /*변경*/
+    /*자식요소 숨기기-높이값0,넘치는요소숨기기*/
+    height: 0;
+    text-shadow: 1px 1px 0 #777;
+    /*추가*/
+    border-radius: 0 0 4px 4px;
+    /*추가*/
+    overflow: hidden;
+    transition: height .4s ease-out;
+}
+
+/* 상위메뉴에 마우스 오버시 하위메뉴 슬라이딩 보이기*/
+/*서브메뉴 개수가 3개로 같으므로 한번에 셋팅!*/
+.gnb > ul > li:hover .smenu {
+    height: 120px;
+}
+
+
+.smenu li {
+    width: 100%;
+    /*기본float설정된 li를 한줄에 하나씩
+            오게하려면 width를 100%준다!*/
+}
+
+/*하위메뉴에 마우스 오버시 글자색,배경색변경*/
+.smenu li:hover a {
+    color: #777;
+    /*변경*/
+    background-color: #bababa;
+    /*변경*/
+    text-shadow: 0 1px 0 #fff;
+    /*추가*/
+}
+
+/*1-3.탑메뉴그룹*/
+.tmenu {
+    position: absolute;
+    /*나의부모? #top*/
+    top: 0;
+    right: 10px;
+}
+
+/*각 리스트*/
+.tmenu li {
+    padding: 0 3px;
+    line-height: 40px;
+    font-size: 12px;
+}
+
+/*가상요소로 사이에 구분점 넣기*/
+/*
+    가상요소 중 before, after의 필수속성은 content
+    content: "문자값"
+    content: url(이미지경로)
+    content: "" - 빈문자로 디자인잡을때
+    - 빈문자를 넣으면 처음엔 span 태그를 넣은것 같고
+    - display:block을 주면 div태그를 넣은것 같다!
+*/
+/* li+li는 앞에 li형제가 있는 li만 선택 */
+.tmenu li + li::before {
+    content: "·";
+    margin-right: 3px;
+}
+
+/*1-4.SNS메뉴*/
+.sns {
+    position: absolute;
+    top: 40px;
+    right: 10px;
+}
+
+.sns li {
+    width: 30px;
+    height: 30px;
+    background: url(../images/icons.png) no-repeat;
+    /*    outline: 1px solid red;*/
+}
+
+/*개별 배경이미지 변경하기(Sprites기법)*/
+.sns li:first-child {
+    /*트위터*/
+    background-position: 0 0;
+}
+
+.sns li:first-child:hover {
+    /*트위터 오버시*/
+    background-position: 0 -30px;
+}
+
+.sns li:nth-child(2) {
+    /*인스타그램*/
+    background-position: -30px 0;
+}
+
+.sns li:nth-child(2):hover {
+    /*인스타그램 오버시*/
+    background-position: -30px -30px;
+}
+
+.sns li:last-child {
+    /*페이스북*/
+    background-position: -60px 0;
+}
+
+.sns li:last-child:hover {
+    /*페이스북 오버시*/
+    background-position: -60px -30px;
+}
+
+/*링크확장*/
+.sns a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/************ 2.컨텐츠영역 **************/
+#cont {
+    position: relative;
+    /*부모자격*/
+    min-height: 590px;
+    /*
+        height를 특정 크기로 셋팅하면 내용이 많아져도
+        자동으로 높이가 늘어나지 않는다.
+        자동 늘리기는 auto값을 주거나 아무설정도 하지않으면됨
+        그러나 일정 높이를 기본적으로 유지하고 싶을 경우
+        min-height를 주면 최소높이유지와 함께 컨텐츠가
+        넘치면 자동으로 늘어남!
+    */
+}
+
+
+
+
+
+
+
+
+/************** 3.하단영역 ***************/
+#info {
+    position: relative;
+    /*부모자격*/
+    height: 90px;
+    border-top: 1px solid #ccc;
+}
+
+/*하단로고*/
+#info > img {
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+/*주소*/
+#info address {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    /*부모박스에 밀착된 absolute박스!*/
+
+    text-align: center;
+    /*인라인요소 박스중앙*/
+    font-style: normal;
+    /*기본italic해제*/
+    line-height: 90px;
+    /*줄간격*/
+    font-size: 14px;
+    color: #555;
+}

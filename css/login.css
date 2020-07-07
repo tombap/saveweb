@@ -1,0 +1,121 @@
+@charset "utf-8";
+/* My Item 로그인 페이지 CSS - login.css */
+
+/*import로 공통css 통합하기*/
+@import url(core.css);
+@import url(reset.css);
+@import url(common.css);
+
+/* 로그인 페이지 전용 CSS 셋팅 */
+
+/*타이틀*/
+.tit{
+    width: 700px;
+    height: 45px;
+    margin: 0 auto;
+    margin-top: 80px;
+    font-size: 20px;
+    line-height: 45px;
+    color: #777;
+    text-shadow: 1px 1px 1px #999;
+    /*outline: 1px solid red;*/
+}
+/*가상요소로 아이콘 넣기*/
+.tit::before{
+    content: url(../images/login_icon.png);
+    vertical-align: -15px;
+    margin-left: 5px;
+    margin-right: 13px;
+}
+/*로그인박스*/
+#login{
+    position: relative;
+    /*부모자격-버튼의 부모*/    
+    width: 700px;
+    height: 275px;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 2px solid #737373;
+    border-radius: 10px;
+}
+/*아이디,비번박스*/
+.minput{
+   height: 36px; 
+    margin-top: 25px;
+    margin-left: 15px;
+}
+/*아이디박스*/
+.minput:first-child{
+    margin-top: 60px;
+}
+/*라벨공통디자인*/
+.minput label{/*원래는 inline*/
+    display: inline-block;
+    width: 150px;
+    padding-top: 9px;
+    vertical-align: top;
+    font-size: 20px;
+    font-weight: bold;
+    color: #737373;
+    text-align: center;
+}
+/*입력창공통*/
+.minput input{
+    width: 320px;
+    height: 36px;
+    border: 1px solid #737373;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #666;
+    padding-left: 5px;
+}
+/*크롬 focus 테두리제거*/
+.minput input:focus{
+    outline: none;
+}
+/*로그인버튼*/
+.btnBox{
+    position: absolute;
+    /*부모? #login*/
+    top: 60px;
+    right: 40px;
+}
+/*서브밋버튼*/
+#sbtn{
+    width: 113px;
+    height: 98px;
+    border: 1px solid #737373;
+    border-radius: 5px;
+    background-image: linear-gradient(to bottom, #ddd,#555);
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 1px 1px 0 #666;
+}
+/*기타체크링크박스*/
+.addBox{
+    margin-top: 50px;
+    text-align: center;
+}
+/*체크박스영역*/
+.addBox>span{
+    margin: 0 15px;
+    color: #666;
+}
+/*체크박스 옆 세로정렬 맞추기*/
+.addBox>span>input{
+    vertical-align: -2px;
+}
+/*기타링크*/
+.addBox>a{
+    margin: 0 15px;
+}
+
+
+
+
+
+
+
+
+

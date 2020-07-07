@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* My Item 메인 CSS - main.css */
+
+/*import로 공통css 통합하기*/
+@import url(core.css);
+@import url(reset.css);
+@import url(common.css);
+
+/* 메인전용 CSS 셋팅 */
+
+/*메인이미지박스*/
+.mimg {
+    text-align: center;
+}
+
+.mimg img {
+    /*큰이미지*/
+    width: 340px;
+    margin-top: 100px;
+}
+
+/*썸네일박스*/
+.thumbs {
+    position: absolute;
+    /*나의부모?*/
+    bottom: 20px;
+    left: -25%;
+    width: 150%;
+    height: 100px;
+    /*자식요소가 abs이므로 크기를 준다!
+    자식요소 ol을 중앙이동했을때 요소가 아래로 떨어지므로
+    150%로 넓게 잡아줌!*/
+    
+/*    outline: 2px dotted blue;*/
+}
+
+.thumbs ol {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.thumbs img {
+    height: 100px;
+    transition: all .4s;
+    /*트랜지션*/
+}
+/*썸네일 이미지에 마우스 오버시 이미지 높이값 변경하기*/
+.thumbs img:hover {
+    height: 150px;
+    margin-top: -50px;
+    /*높이값만큼 마진을 반대로 주면 이미지가 위로 올라감!*/
+}
+
+
+
+
+
+
+
+
